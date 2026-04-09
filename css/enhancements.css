@@ -1,0 +1,915 @@
+/* ============================================
+   ENHANCEMENTS — Tipografía, textos y animaciones
+   Centro Psicológico Magusa Arcoiris
+   NOTA: Este archivo debe cargarse DESPUÉS de style.css
+   ============================================ */
+
+/* ---- Offset para navbar fija en anchor links ---- */
+html {
+  scroll-padding-top: 90px;
+}
+
+/* ---- Variables ---- */
+:root {
+  --font-heading: 'Playfair Display', Georgia, serif;
+  --font-body: 'Lato', Arial, sans-serif;
+  --color-body-text: #545454;
+  --color-heading: rgba(0, 0, 0, 0.82);
+  --color-primary: #5ac0a8;
+  --transition-base: 0.3s ease;
+}
+
+/* ---- Tipografía base ---- */
+body {
+  font-family: var(--font-body);
+  color: var(--color-body-text);
+  font-size: 17px;
+  line-height: 1.85;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5,
+.h1, .h2, .h3, .h4, .h5 {
+  font-family: var(--font-heading);
+  color: var(--color-heading);
+  line-height: 1.3;
+  font-weight: 600;
+}
+
+h1 { font-weight: 700; letter-spacing: -0.5px; }
+h3 { font-weight: 600; }
+
+/* ============================================
+   HERO — Portada
+   ============================================ */
+
+/* Overlay degradado: oscuro-verde a la izquierda (donde está el texto),
+   se desvanece hacia la derecha para dejar visible la imagen */
+.hero-wrap:not(.hero-wrap-2) .overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    108deg,
+    rgba(5, 38, 33, 0.88) 0%,
+    rgba(5, 38, 33, 0.66) 38%,
+    rgba(5, 38, 33, 0.28) 65%,
+    rgba(5, 38, 33, 0.06) 100%
+  );
+  z-index: 1;
+}
+
+/* El contenido queda por encima del overlay */
+.hero-wrap .container {
+  position: relative;
+  z-index: 2;
+}
+
+/* Texto del hero: blanco sobre el overlay oscuro */
+.slider-text h1 {
+  font-size: clamp(36px, 5vw, 62px);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -1px;
+  color: #fff;
+  text-shadow: 0 2px 28px rgba(0, 0, 0, 0.20);
+}
+
+.slider-text p {
+  font-family: var(--font-body);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+/* Línea de acento verde antes del titular */
+.slider-text .text::before {
+  content: '';
+  display: block;
+  width: 44px;
+  height: 3px;
+  background: var(--color-primary);
+  border-radius: 2px;
+  margin-bottom: 22px;
+}
+
+/* ---- Botones ---- */
+.btn {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  border-radius: 4px;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Botón principal: teal #5ac0a8 */
+.btn.btn-primary {
+  background: var(--color-primary) !important;
+  border-color: var(--color-primary) !important;
+  color: #fff !important;
+}
+
+.btn.btn-primary:hover,
+.btn.btn-primary:focus {
+  background: transparent !important;
+  color: var(--color-primary) !important;
+  border-color: var(--color-primary) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px -4px rgba(90, 192, 168, 0.50);
+}
+
+/* Botón blanco: contorno translúcido sobre la imagen del hero */
+.btn.btn-white {
+  background: rgba(255, 255, 255, 0.10) !important;
+  border: 2px solid rgba(255, 255, 255, 0.72) !important;
+  color: #fff !important;
+}
+
+.btn.btn-white:hover,
+.btn.btn-white:focus {
+  background: rgba(255, 255, 255, 0.95) !important;
+  border-color: #fff !important;
+  color: #0d4a40 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px -4px rgba(0, 0, 0, 0.18);
+}
+
+/* ============================================
+   NAVEGACIÓN
+   ============================================ */
+.ftco-navbar-light .navbar-nav > .nav-item > .nav-link {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+}
+
+/* ============================================
+   SUBHEADINGS DE SECCIÓN
+   ============================================ */
+.heading-section .subheading {
+  font-family: var(--font-body);
+  font-size: 11px;
+  letter-spacing: 3.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  display: inline-block;
+  margin-bottom: 4px;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.heading-section .subheading::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 28px;
+  height: 2px;
+  background: var(--color-primary);
+  border-radius: 2px;
+}
+
+.heading-section:not(.text-center) .subheading::after,
+.heading-section.text-left .subheading::after {
+  left: 0;
+  transform: none;
+}
+
+.heading-section h2 {
+  font-size: clamp(26px, 3.2vw, 40px);
+  margin-top: 14px;
+  font-weight: 700;
+}
+
+.heading-section-white .subheading::after {
+  background: rgba(255, 255, 255, 0.8);
+}
+
+/* ============================================
+   SECCIÓN INTRO — 3 cajas superiores
+   ============================================ */
+.intro .text h2 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.intro .text p {
+  font-size: 15px;
+  line-height: 1.7;
+  margin-bottom: 0;
+}
+
+/* Caja intro principal: borde superior de acento */
+.ftco-intro .intro.aside-stretch {
+  border-top: 3px solid var(--color-primary);
+}
+
+.ftco-intro .intro {
+  transition: transform var(--transition-base);
+}
+
+.ftco-intro .intro:hover {
+  transform: translateY(-5px);
+}
+
+/* ============================================
+   TARJETAS DE SERVICIOS — 01 02 03
+   ============================================ */
+.services-2 {
+  transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
+  border-radius: 6px;
+  border-top: 3px solid transparent;
+}
+
+
+.services-2 h2 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.services-2 p {
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+/* ============================================
+   SECCIÓN ABOUT — Psicóloga
+   ============================================ */
+.wrap-about .heading-section h2 {
+  font-size: clamp(22px, 2.5vw, 30px);
+  line-height: 1.35;
+}
+
+.wrap-about p {
+  font-size: 16px;
+  line-height: 1.85;
+}
+
+/* ============================================
+   TABS DE SERVICIOS
+   ============================================ */
+.nav-pills .nav-link {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  transition: background 0.2s ease, color 0.2s ease, padding-left 0.2s ease;
+}
+
+.nav-pills .nav-item .nav-link:not(.lnk-principal):hover {
+  padding-left: 28px !important;
+}
+
+.tab-content h3 a {
+  font-family: var(--font-heading);
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.tab-content p {
+  font-size: 15.5px;
+  line-height: 1.85;
+}
+
+/* ============================================
+   CONTADOR
+   ============================================ */
+.ftco-counter .number,
+.ftco-counter .number-wrap .number {
+  font-family: var(--font-heading);
+  font-weight: 700;
+}
+
+/* ============================================
+   TESTIMONIOS
+   ============================================ */
+.testimony-wrap .text > p {
+  font-size: 15.5px;
+  font-style: italic;
+  line-height: 1.75;
+  color: #666;
+}
+
+.testimony-wrap .name {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 16px;
+  color: rgba(0, 0, 0, 0.82);
+}
+
+.testimony-wrap .position {
+  font-family: var(--font-body);
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #999;
+}
+
+/* ============================================
+   FORMULARIO DE CITAS
+   ============================================ */
+.appointment .form-control {
+  font-family: var(--font-body);
+  font-size: 15px;
+}
+
+.ftco-appointment h2 {
+  font-size: clamp(26px, 3vw, 36px);
+  color: #fff;
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+.ftco-footer .ftco-heading-2 {
+  font-family: var(--font-heading);
+  font-size: 19px;
+  font-weight: 600;
+}
+
+.ftco-footer p,
+.ftco-footer li,
+.ftco-footer a {
+  font-family: var(--font-body);
+  font-size: 15px;
+}
+
+/* ============================================
+   ANIMACIONES — entrada más suave
+   ============================================ */
+.fadeInUp {
+  animation-duration: 0.65s;
+  animation-timing-function: cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.fadeIn {
+  animation-duration: 0.55s;
+  animation-timing-function: ease-out;
+}
+
+.fadeInLeft,
+.fadeInRight {
+  animation-duration: 0.65s;
+  animation-timing-function: cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+/* Pulse del botón de video en color teal principal */
+@keyframes pulse-primary {
+  0%   { box-shadow: 0 0 0 0   rgba(90, 192, 168, 0.55); }
+  70%  { box-shadow: 0 0 0 18px rgba(90, 192, 168, 0);   }
+  100% { box-shadow: 0 0 0 0   rgba(90, 192, 168, 0);    }
+}
+
+.slider-text .img-video,
+.play-video .icon {
+  animation: pulse-primary 2.2s infinite !important;
+}
+
+/* Suavizado de transición en tabs */
+.tab-pane {
+  transition: opacity 0.3s ease;
+}
+
+/* ============================================
+   HERO BANNER — páginas interiores (.hero-wrap-2)
+   ============================================ */
+
+/* Overlay oscuro uniforme: el gradiente teal original da poco contraste
+   al texto centrado del banner */
+.hero-wrap.hero-wrap-2 .overlay {
+  background: linear-gradient(
+    160deg,
+    rgba(5, 38, 33, 0.52) 0%,
+    rgba(5, 38, 33, 0.74) 100%
+  ) !important;
+}
+
+/* Contenido siempre sobre el overlay */
+.hero-wrap.hero-wrap-2 .container {
+  position: relative;
+  z-index: 2;
+}
+
+/* Título de página interior: blanco con sombra */
+.slider-text .bread {
+  color: #fff !important;
+  font-family: var(--font-heading);
+  font-size: clamp(32px, 5vw, 56px);
+  font-weight: 700 !important;
+  letter-spacing: -0.5px;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.30);
+}
+
+/* Breadcrumb: blanco translúcido */
+.slider-text .breadcrumbs span,
+.slider-text .breadcrumbs span a {
+  color: rgba(255, 255, 255, 0.78) !important;
+}
+
+.slider-text .breadcrumbs span i {
+  color: rgba(255, 255, 255, 0.48) !important;
+}
+
+.slider-text .breadcrumbs span a:hover,
+.slider-text .breadcrumbs span a:focus {
+  color: #fff !important;
+  text-decoration: none;
+}
+
+/* Línea decorativa sobre el título del banner */
+.hero-wrap-2 .slider-text .text-center::before {
+  content: '';
+  display: block;
+  width: 36px;
+  height: 2px;
+  background: var(--color-primary);
+  border-radius: 2px;
+  margin: 0 auto 18px;
+}
+
+/* ============================================
+   SECCIÓN ABOUT — Psicóloga directora
+   ============================================ */
+
+/* Subheading más pequeño para que quepa sin truncar */
+.wrap-about .heading-section .subheading {
+  font-size: 10px;
+  letter-spacing: 2.5px;
+}
+
+/* Credencial C.PS.P — peso visual sutil */
+.wrap-about .cpsp {
+  font-family: var(--font-body);
+  font-size: 13px;
+  letter-spacing: 1px;
+  color: var(--color-primary);
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+/* ============================================
+   TARJETAS DEL EQUIPO — .services-wrap
+   ============================================ */
+
+/* Altura uniforme: cada tarjeta llena su columna para que las parejas de
+   la misma fila queden al mismo tamaño (Bootstrap .row ya es flexbox stretch) */
+.services-wrap {
+  height: 100%;
+  min-height: 260px;
+}
+
+/* La imagen rellena toda la altura de la tarjeta */
+.services-wrap .img {
+  min-height: 220px;
+}
+
+.services-wrap .text h2 {
+  font-family: var(--font-heading);
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+/* Hover: teal principal */
+.services-wrap:hover .text {
+  background: var(--color-primary) !important;
+  color: rgba(255, 255, 255, 0.88) !important;
+}
+
+.services-wrap:hover .text h2 {
+  color: #fff !important;
+}
+
+.services-wrap:hover .text p,
+.services-wrap:hover .text ul,
+.services-wrap:hover .text li {
+  color: rgba(255, 255, 255, 0.82) !important;
+}
+
+/* ============================================
+   CONTADOR — .ftco-counter
+   ============================================ */
+
+.ftco-counter .text strong.number {
+  font-family: var(--font-heading) !important;
+  font-size: clamp(42px, 5vw, 60px) !important;
+  font-weight: 700 !important;
+  color: var(--color-primary) !important;
+  display: block;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+
+.ftco-counter .text span {
+  font-family: var(--font-body) !important;
+  font-size: 13px !important;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  color: #888 !important;
+}
+
+/* ============================================
+   PÁGINA DE CONTACTO
+   ============================================ */
+
+/* --- Info boxes (Dirección, Teléfono, Email, Web) --- */
+
+/* Columnas del row de dboxes: misma altura */
+.wrapper .row:first-child .col-md-3 {
+  display: flex;
+}
+
+.dbox {
+  background: #fff;
+  border-radius: 10px;
+  padding: 28px 20px !important;
+  box-shadow: 0 4px 20px -4px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+  display: flex !important;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+/* El bloque de texto hereda centrado aunque .text sea width:100% */
+.dbox .text {
+  text-align: center !important;
+  width: 100%;
+}
+
+.dbox:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px -6px rgba(90, 192, 168, 0.18);
+}
+
+.dbox .icon {
+  background: var(--color-primary) !important;
+  width: 72px !important;
+  height: 72px !important;
+  box-shadow: 0 6px 18px -4px rgba(90, 192, 168, 0.45);
+}
+
+.dbox .icon span {
+  font-size: 24px !important;
+}
+
+.dbox p { margin-bottom: 0; }
+
+/* Título del card (Dirección, Teléfono…) */
+.dbox .dbox-title {
+  font-family: var(--font-heading);
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--color-heading);
+  margin-bottom: 8px !important;
+  line-height: 1.2;
+  text-align: center;
+}
+
+/* Dato con icono inline: flex para que el icono nunca quede solo en su línea */
+.dbox .dbox-info {
+  font-size: 13px;
+  color: #777;
+  line-height: 1.55;
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 4px;
+  justify-content: center;
+  text-align: left;
+}
+
+.dbox .dbox-info .fa {
+  color: var(--color-primary);
+  font-size: 12px;
+  margin-top: 3px;   /* alinea verticalmente con la primera línea del texto */
+  flex-shrink: 0;
+}
+
+.dbox .dbox-info a {
+  color: var(--color-primary);
+  word-break: break-word;
+}
+
+.dbox .dbox-info a:hover {
+  color: var(--color-heading);
+  text-decoration: none;
+}
+
+/* --- Formulario de contacto --- */
+.contact-wrap {
+  border-radius: 10px 0 0 10px;
+  box-shadow: 0 8px 40px -8px rgba(0, 0, 0, 0.10);
+}
+
+.contact-wrap h3 {
+  font-family: var(--font-heading);
+  font-size: clamp(22px, 2.5vw, 28px);
+  font-weight: 700;
+  color: var(--color-heading);
+  position: relative;
+  padding-bottom: 14px;
+  margin-bottom: 28px !important;
+}
+
+.contact-wrap h3::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 36px;
+  height: 2px;
+  background: var(--color-primary);
+  border-radius: 2px;
+}
+
+/* Mapa responsive */
+.col-md-5.order-md-first iframe {
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 380px;
+  border-radius: 0 10px 10px 0;
+  display: block;
+}
+
+/* --- Tarjetas de agendamiento (.sched-card) --- */
+.sched-card {
+  display: flex;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px -6px rgba(0, 0, 0, 0.10);
+  overflow: hidden;
+  width: 100%;
+}
+
+/* Panel izquierdo: perfil del profesional */
+.sched-profile {
+  width: 270px;
+  flex: 0 0 270px;
+  padding: 28px 20px;
+  border-right: 1px solid rgba(0, 0, 0, 0.07);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sched-avatar {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto 14px;
+  border: 3px solid var(--color-primary);
+  flex-shrink: 0;
+}
+
+.sched-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.sched-name {
+  font-family: var(--font-heading);
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--color-heading);
+  margin-bottom: 2px !important;
+  line-height: 1.2;
+}
+
+.sched-role {
+  font-size: 13px;
+  color: #777;
+  margin-bottom: 6px !important;
+}
+
+.sched-specialties {
+  font-size: 12px;
+  color: #999;
+  line-height: 1.5;
+  margin-bottom: 8px !important;
+}
+
+.sched-location {
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 2px !important;
+}
+
+.sched-ref {
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 6px !important;
+}
+
+.sched-ref .fa {
+  color: var(--color-primary);
+}
+
+.sched-rating {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--color-heading);
+  margin-bottom: 16px !important;
+}
+
+.sched-rating .fa-star {
+  color: #f0a500;
+}
+
+.sched-reviews {
+  font-weight: 400;
+  color: #999;
+}
+
+.sched-profile-btns {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: auto;
+}
+
+.sched-btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--color-heading);
+  border: 1.5px solid rgba(0, 0, 0, 0.18);
+  border-radius: 6px;
+  padding: 6px 10px;
+  text-decoration: none;
+  transition: border-color var(--transition-base), color var(--transition-base);
+  white-space: nowrap;
+}
+
+.sched-btn-outline:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+/* Panel derecho: calendario de horarios */
+.sched-calendar {
+  flex: 1 1 0;
+  min-width: 0;
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+}
+
+.sched-title {
+  font-family: var(--font-heading);
+  font-size: 20px;
+  font-weight: 700;
+  text-align: center;
+  color: var(--color-heading);
+  margin-bottom: 18px !important;
+}
+
+/* Tabla de días y slots */
+.sched-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 6px;
+  table-layout: fixed;
+  margin-bottom: 0;
+}
+
+/* Cabecera de día */
+.sched-table thead th.sched-day {
+  text-align: center;
+  padding: 10px 8px !important;
+  border-radius: 10px;
+  background: rgba(90, 192, 168, 0.07);
+  border: none;
+}
+
+.sched-table thead th.sched-day.active {
+  background: rgba(90, 192, 168, 0.20);
+}
+
+.sched-day-label {
+  display: block;
+  font-size: 10px;
+  color: #999;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  font-weight: 600;
+}
+
+.sched-day-num {
+  display: block;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--color-heading);
+  line-height: 1.15;
+}
+
+.sched-table thead th.sched-day.active .sched-day-label,
+.sched-table thead th.sched-day.active .sched-day-num {
+  color: var(--color-primary);
+}
+
+/* Celdas de la tabla */
+.sched-table tbody td {
+  text-align: center;
+  padding: 4px 3px !important;
+  border: none;
+}
+
+/* Botones de horario */
+.sched-slot {
+  display: block;
+  width: 100%;
+  padding: 9px 6px;
+  font-size: 13px;
+  font-weight: 600;
+  border: 1.5px solid var(--color-primary);
+  border-radius: 8px;
+  color: var(--color-primary);
+  background: #fff;
+  cursor: pointer;
+  transition: background var(--transition-base), color var(--transition-base);
+  white-space: nowrap;
+  line-height: 1;
+}
+
+.sched-slot.available:hover {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+.sched-slot.unavailable {
+  border-color: #e0e0e0;
+  color: #c0c0c0;
+  cursor: not-allowed;
+  background: #f7f7f7;
+}
+
+.sched-slot.unavailable:hover {
+  background: #f7f7f7;
+  color: #c0c0c0;
+}
+
+/* Botón "Ver más horarios" */
+.sched-more-btn {
+  display: block;
+  width: 100%;
+  margin-top: 10px;
+  padding: 13px;
+  text-align: center;
+  background: rgba(90, 192, 168, 0.10);
+  border: 1.5px solid var(--color-primary);
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--color-heading);
+  cursor: pointer;
+  transition: background var(--transition-base), color var(--transition-base);
+  text-decoration: none;
+}
+
+.sched-more-btn:hover {
+  background: var(--color-primary);
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Mobile: apila perfil encima del horario */
+@media (max-width: 767px) {
+  .sched-card {
+    flex-direction: column;
+  }
+  .sched-profile {
+    width: 100%;
+    flex: none;
+    border-right: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+  }
+  .sched-table {
+    font-size: 12px;
+  }
+  .sched-slot {
+    font-size: 11px;
+    padding: 7px 2px;
+  }
+  .sched-day-num {
+    font-size: 16px;
+  }
+}

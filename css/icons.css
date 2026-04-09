@@ -1,0 +1,209 @@
+/* ============================================
+   ICONS — Reemplaza Font Awesome 4.7, Flaticon
+   y Open Iconic con SVGs vía CSS mask.
+   Sin dependencias externas ni CDN.
+   ============================================ */
+
+/* ---- SVG data URIs (definidas una sola vez) ---- */
+:root {
+  --icon-phone:         url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1C10.61 21 3 13.39 3 4c0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z'/%3E%3C/svg%3E");
+  --icon-paper-plane:   url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M2 21l21-9L2 3v7l15 2-15 2v7z'/%3E%3C/svg%3E");
+  --icon-facebook:      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath d='M283.122 122.174c0 5.24 0 22.319 0 46.583h83.424l-9.045 74.367h-74.379c0 114.688 0 268.375 0 268.375h-98.726s0-151.653 0-268.375h-51.443v-74.367h51.443c0-29.492 0-50.463 0-56.302 0-27.82-2.096-41.02 9.725-62.578C205.948 28.32 239.308-.174 297.007.512c57.713.711 82.04 6.263 82.04 6.263l-12.501 79.257s-36.853-9.731-54.942-6.263c-17.961 3.724-28.482 14.852-28.482 42.405z'/%3E%3C/svg%3E");
+  --icon-instagram:     url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4c0 3.2-2.6 5.8-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8C2 4.6 4.6 2 7.8 2zm-.2 2C5.61 4 4 5.61 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8c1.99 0 3.6-1.61 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6zm9.65 1.5a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5zM12 7a5 5 0 1 1 0 10A5 5 0 0 1 12 7zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6z'/%3E%3C/svg%3E");
+  --icon-whatsapp:      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M11.42 9.49c-.19-.09-1.1-.54-1.27-.61s-.29-.09-.42.1-.48.6-.59.73-.21.14-.4 0a5.13 5.13 0 0 1-1.49-.92 5.25 5.25 0 0 1-1-1.29c-.11-.18 0-.28.08-.38s.18-.21.28-.32a1.39 1.39 0 0 0 .18-.31.38.38 0 0 0 0-.33c0-.09-.42-1-.58-1.37s-.3-.32-.41-.32h-.4a.72.72 0 0 0-.5.23 2.1 2.1 0 0 0-.65 1.55A3.59 3.59 0 0 0 5 8.2 8.32 8.32 0 0 0 8.19 11c.44.19.78.3 1.05.39a2.53 2.53 0 0 0 1.17.07 1.93 1.93 0 0 0 1.26-.88 1.67 1.67 0 0 0 .11-.88c-.05-.07-.17-.12-.36-.21z'/%3E%3Cpath d='M13.29 2.68A7.36 7.36 0 0 0 8 .5a7.44 7.44 0 0 0-6.41 11.15l-1 3.85 3.94-1a7.4 7.4 0 0 0 3.55.9H8a7.44 7.44 0 0 0 5.29-12.72zM8 14.12a6.12 6.12 0 0 1-3.15-.87l-.22-.13-2.34.61.62-2.28-.14-.23a6.18 6.18 0 0 1 9.6-7.65 6.12 6.12 0 0 1 1.81 4.37A6.19 6.19 0 0 1 8 14.12z'/%3E%3C/svg%3E");
+  --icon-youtube:       url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M21.543 6.498C22 8.28 22 12 22 12s0 3.72-.457 5.502c-.254.985-.997 1.76-1.938 2.022C17.896 20 12 20 12 20s-5.893 0-7.605-.476c-.945-.266-1.687-1.04-1.938-2.022C2 15.72 2 12 2 12s0-3.72.457-5.502c.254-.985.997-1.76 1.938-2.022C6.107 4 12 4 12 4s5.896 0 7.605.476c.945.266 1.687 1.04 1.938 2.022zM10 15.5l6-3.5-6-3.5v7z'/%3E%3C/svg%3E");
+  --icon-twitter:       url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.733-8.835L1.254 2.25H8.08l4.713 6.231 5.451-6.231zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77z'/%3E%3C/svg%3E");
+  --icon-chevron-right: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6-6-6z'/%3E%3C/svg%3E");
+  --icon-chevron-down:  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6-1.41-1.41z'/%3E%3C/svg%3E");
+  --icon-angle-right:   url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z'/%3E%3C/svg%3E");
+  --icon-quote-left:    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z'/%3E%3C/svg%3E");
+  --icon-play:          url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M8 5v14l11-7z'/%3E%3C/svg%3E");
+  --icon-map-marker:    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z'/%3E%3C/svg%3E");
+  --icon-globe:         url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z'/%3E%3C/svg%3E");
+  --icon-check:         url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z'/%3E%3C/svg%3E");
+  --icon-google:        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12.48 10.92v3.28h7.84c-.24 1.84-.853 3.187-1.787 4.133-1.147 1.147-2.933 2.4-6.053 2.4-4.827 0-8.6-3.893-8.6-8.72s3.773-8.72 8.6-8.72c2.6 0 4.507 1.027 5.907 2.347l2.307-2.307C18.747 1.44 16.133 0 12.48 0 5.867 0 .307 5.387.307 12s5.56 12 12.173 12c3.573 0 6.267-1.173 8.373-3.36 2.16-2.16 2.84-5.213 2.84-7.667 0-.76-.053-1.467-.173-2.053H12.48z'/%3E%3C/svg%3E");
+  --icon-calendar:      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M20 3h-1V1h-2v2H7V1H5v2H4c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 18H4V8h16v13zM6 10h5v5H6z'/%3E%3C/svg%3E");
+  --icon-user:          url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z'/%3E%3C/svg%3E");
+  --icon-comment:       url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z'/%3E%3C/svg%3E");
+  --icon-heart:         url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z'/%3E%3C/svg%3E");
+  --icon-search:        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z'/%3E%3C/svg%3E");
+
+  /* Flaticon replacements */
+  --icon-flaticon-calendar:   url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M52 6h-4V4a2 2 0 0 0-4 0v2H20V4a2 2 0 0 0-4 0v2h-4C8.477 6 6 8.477 6 12v40c0 3.523 2.477 6 6 6h40c3.523 0 6-2.477 6-6V12c0-3.523-2.477-6-6-6zm2 46c0 1.103-.897 2-2 2H12c-1.103 0-2-.897-2-2V24h44v28zm0-32H10v-8c0-1.103.897-2 2-2h4v2a2 2 0 0 0 4 0v-2h24v2a2 2 0 0 0 4 0v-2h4c1.103 0 2 .897 2 2v8zM20 32h-4a2 2 0 0 0 0 4h4a2 2 0 0 0 0-4zm12 0h-4a2 2 0 0 0 0 4h4a2 2 0 0 0 0-4zm12 0h-4a2 2 0 0 0 0 4h4a2 2 0 0 0 0-4zm-24 8h-4a2 2 0 0 0 0 4h4a2 2 0 0 0 0-4zm12 0h-4a2 2 0 0 0 0 4h4a2 2 0 0 0 0-4zm12 0h-4a2 2 0 0 0 0 4h4a2 2 0 0 0 0-4z'/%3E%3C/svg%3E");
+  --icon-flaticon-qa:          url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M54 4H10C6.686 4 4 6.686 4 10v28c0 3.314 2.686 6 6 6h6v12l14-12h24c3.314 0 6-2.686 6-6V10c0-3.314-2.686-6-6-6zm-20 26h-4V18h4v12zm0-16h-4v-4h4v4z'/%3E%3C/svg%3E");
+  --icon-flaticon-checklist:   url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M44 4H20a4 4 0 0 0-4 4v4H12a4 4 0 0 0-4 4v40a4 4 0 0 0 4 4h32a4 4 0 0 0 4-4v-4h4a4 4 0 0 0 4-4V20L44 4zm0 6.828L49.172 16H44V10.828zM44 56H12V16h4v28a4 4 0 0 0 4 4h24v8zm8-12H20V8h20v12h12v24zm-20-4 10-10-2.828-2.828L32 34.344l-3.172-3.172L26 34l6 6z'/%3E%3C/svg%3E");
+  --icon-flaticon-employee:    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M32 32c7.18 0 13-5.82 13-13S39.18 6 32 6s-13 5.82-13 13 5.82 13 13 13zm0-22c4.963 0 9 4.037 9 9s-4.037 9-9 9-9-4.037-9-9 4.037-9 9-9zm18 44H14a2 2 0 0 1-2-2v-4c0-7.72 8.056-14 18-14h4c9.944 0 18 6.28 18 14v4a2 2 0 0 1-2 2zm-2-6c0-5.514-6.617-10-14-10h-4c-7.383 0-14 4.486-14 10v2h32v-2z'/%3E%3C/svg%3E");
+  --icon-flaticon-umbrella:    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M32 4C17.088 4 5 16.088 5 31a2 2 0 0 0 2 2h23v18c0 2.757 2.243 5 5 5s5-2.243 5-5a2 2 0 0 0-4 0c0 .551-.449 1-1 1s-1-.449-1-1V33h23a2 2 0 0 0 2-2C59 16.088 46.912 4 32 4zm-20.8 25C12.371 19.6 21.3 12 32 12s19.629 7.6 20.8 17H11.2z'/%3E%3C/svg%3E");
+}
+
+/* ============================================
+   BASE — Font Awesome
+   ============================================ */
+.fa {
+  display: inline-block;
+  font: normal normal normal 14px/1 sans-serif !important;
+  font-size: inherit !important;
+  line-height: 1;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Pseudo-element base compartido */
+.fa::before {
+  content: '' !important;
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  background-color: currentColor;
+  -webkit-mask-repeat: no-repeat;
+          mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+          mask-position: center;
+  -webkit-mask-size: contain;
+          mask-size: contain;
+  vertical-align: -0.125em;
+}
+
+/* ============================================
+   Font Awesome — iconos individuales
+   ============================================ */
+.fa-phone::before {
+  -webkit-mask-image: var(--icon-phone);
+          mask-image: var(--icon-phone);
+}
+.fa-paper-plane::before {
+  -webkit-mask-image: var(--icon-paper-plane);
+          mask-image: var(--icon-paper-plane);
+}
+.fa-facebook::before,
+.fa-facebook-f::before {
+  -webkit-mask-image: var(--icon-facebook);
+          mask-image: var(--icon-facebook);
+}
+.fa-instagram::before {
+  -webkit-mask-image: var(--icon-instagram);
+          mask-image: var(--icon-instagram);
+}
+.fa-whatsapp::before {
+  -webkit-mask-image: var(--icon-whatsapp);
+          mask-image: var(--icon-whatsapp);
+}
+.fa-youtube::before,
+.fa-youtube-play::before {
+  -webkit-mask-image: var(--icon-youtube);
+          mask-image: var(--icon-youtube);
+}
+.fa-twitter::before {
+  -webkit-mask-image: var(--icon-twitter);
+          mask-image: var(--icon-twitter);
+}
+.fa-chevron-right::before {
+  -webkit-mask-image: var(--icon-chevron-right);
+          mask-image: var(--icon-chevron-right);
+}
+.fa-chevron-down::before {
+  -webkit-mask-image: var(--icon-chevron-down);
+          mask-image: var(--icon-chevron-down);
+}
+.fa-angle-right::before {
+  -webkit-mask-image: var(--icon-angle-right);
+          mask-image: var(--icon-angle-right);
+}
+.fa-quote-left::before {
+  -webkit-mask-image: var(--icon-quote-left);
+          mask-image: var(--icon-quote-left);
+}
+.fa-play::before {
+  -webkit-mask-image: var(--icon-play);
+          mask-image: var(--icon-play);
+}
+/* Fix typo in original HTML: "fa-map marker" → targets both class variants */
+.fa-map-marker::before,
+.fa-map.marker::before {
+  -webkit-mask-image: var(--icon-map-marker);
+          mask-image: var(--icon-map-marker);
+}
+.fa-globe::before {
+  -webkit-mask-image: var(--icon-globe);
+          mask-image: var(--icon-globe);
+}
+.fa-check::before {
+  -webkit-mask-image: var(--icon-check);
+          mask-image: var(--icon-check);
+}
+.fa-google::before {
+  -webkit-mask-image: var(--icon-google);
+          mask-image: var(--icon-google);
+}
+.fa-calendar::before {
+  -webkit-mask-image: var(--icon-calendar);
+          mask-image: var(--icon-calendar);
+}
+.fa-user::before {
+  -webkit-mask-image: var(--icon-user);
+          mask-image: var(--icon-user);
+}
+.fa-comment::before,
+.fa-comments::before {
+  -webkit-mask-image: var(--icon-comment);
+          mask-image: var(--icon-comment);
+}
+.fa-heart::before {
+  -webkit-mask-image: var(--icon-heart);
+          mask-image: var(--icon-heart);
+}
+.fa-search::before {
+  -webkit-mask-image: var(--icon-search);
+          mask-image: var(--icon-search);
+}
+
+/* ============================================
+   BASE — Flaticon
+   ============================================ */
+[class^='flaticon-']::before,
+[class*=' flaticon-']::before {
+  content: '' !important;
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  background-color: currentColor;
+  font-family: none !important;
+  -webkit-mask-repeat: no-repeat;
+          mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+          mask-position: center;
+  -webkit-mask-size: contain;
+          mask-size: contain;
+}
+
+/* Flaticon — iconos individuales */
+.flaticon-calendar::before {
+  -webkit-mask-image: var(--icon-flaticon-calendar);
+          mask-image: var(--icon-flaticon-calendar);
+}
+.flaticon-qa::before {
+  -webkit-mask-image: var(--icon-flaticon-qa);
+          mask-image: var(--icon-flaticon-qa);
+}
+.flaticon-checklist::before {
+  -webkit-mask-image: var(--icon-flaticon-checklist);
+          mask-image: var(--icon-flaticon-checklist);
+}
+.flaticon-employee::before {
+  -webkit-mask-image: var(--icon-flaticon-employee);
+          mask-image: var(--icon-flaticon-employee);
+}
+.flaticon-umbrella::before {
+  -webkit-mask-image: var(--icon-flaticon-umbrella);
+          mask-image: var(--icon-flaticon-umbrella);
+}
+
+/* ============================================
+   Open Iconic — hamburger (navbar)
+   Reemplazado con SVG inline en el HTML.
+   Esta regla es por si queda alguna referencia.
+   ============================================ */
+.oi.oi-menu {
+  display: none;
+}
