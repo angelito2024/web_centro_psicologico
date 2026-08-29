@@ -1,0 +1,9 @@
+# Credenciales locales - nunca subir
+mail-config.php
+admin/admin-config.php
+
+# Artefactos de macOS
+.DS_Store
+
+# Backups sueltos
+*.bak

@@ -236,17 +236,31 @@ $('#SERVICIOS').on('change', function() {
 	}
 });
 
-function EnviarEmail() {
-	//	e.preventDefault();
-	datax = $('#contactForm').serializeArray();
+$('#contactForm').on('submit', function(e) {
+	e.preventDefault();
+
+	var $form = $(this);
+	var $submit = $form.find('[type="submit"]');
+	var $feedback = $form.find('.submitting');
+
+	$submit.prop('disabled', true);
+	$feedback.removeClass('text-success text-danger').text('Enviando...');
+
 	$.ajax({
 		method: 'POST',
 		url: 'contacto.php',
-		data: datax
+		data: $form.serializeArray()
 	}).done(function(respuesta) {
-		alert(respuesta);
 		if (respuesta === 'Correo enviado') {
-			document.getElementById('contactform').reset();
+			$feedback.removeClass('text-danger').addClass('text-success').text('¡Mensaje enviado! Nos pondremos en contacto pronto.');
+			$form[0].reset();
+			$('#subservicios').html('<option value="0">Servicios</option>');
+		} else {
+			$feedback.removeClass('text-success').addClass('text-danger').text(respuesta);
 		}
+	}).fail(function() {
+		$feedback.removeClass('text-success').addClass('text-danger').text('No se pudo enviar el mensaje. Intenta nuevamente o contáctanos por WhatsApp.');
+	}).always(function() {
+		$submit.prop('disabled', false);
 	});
-}
+});
