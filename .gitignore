@@ -7,3 +7,7 @@ admin/admin-config.php
 
 # Backups sueltos
 *.bak
+
+# Dependencias de build
+node_modules/
+css/.purged/

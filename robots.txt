@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /blog-data/
+Disallow: /contacto.php
+
+Sitemap: https://centropsicologicomagusa.com/sitemap.xml

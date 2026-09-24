@@ -7,9 +7,17 @@ require 'recursos/mailer/Exception.php';
 require 'recursos/mailer/PHPMailer.php';
 require 'recursos/mailer/SMTP.php';
 
+// Los avisos de PHP nunca deben llegar al visitante: revelan rutas del servidor
+ini_set('display_errors', '0');
 header('Content-Type: text/plain; charset=utf-8');
 
-if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+// Five Server (y similares) ejecutan PHP por consola: no reciben los datos del formulario
+if (PHP_SAPI === 'cli') {
+    echo 'El formulario solo funciona abriendo el sitio desde Laragon (http://localhost/web_centro_psicologico/).';
+    exit;
+}
+
+if (($_SERVER['REQUEST_METHOD'] ?? '') !== 'POST') {
     http_response_code(405);
     echo 'Método no permitido.';
     exit;
@@ -43,6 +51,12 @@ if ($nombre === '' || $email === '' || $mensaje === '') {
 
 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     echo 'El correo electrónico ingresado no es válido.';
+    exit;
+}
+
+// Ley 29733: sin consentimiento expreso no tratamos los datos personales
+if (campo('consentimiento') !== 'si') {
+    echo 'Debes aceptar la política de privacidad para enviar el mensaje.';
     exit;
 }
 
@@ -84,6 +98,7 @@ try {
     $mail->Body .= '<p>Email: ' . $email . '</p>';
     $mail->Body .= '<p>Teléfono: ' . $telefono . '</p>';
     $mail->Body .= '<p>Mensaje: ' . $mensaje . '</p>';
+    $mail->Body .= '<p>Aceptó la política de privacidad: Sí</p>';
     $mail->send();
     echo 'Correo enviado';
 } catch (Exception $e) {

@@ -63,7 +63,7 @@ images/                                                                         
 
 - **Seguridad**: la contraseña SMTP de `contacto.php` se movió a `mail-config.php` (fuera de git); el formulario de contacto ahora valida y sanea los datos antes de enviarlos.
 - **Formulario de contacto**: arreglado el bug real (el envío no prevenía el comportamiento nativo del botón, lo que a veces cancelaba el envío); ambos formularios (home y página de Contacto) ahora comparten la misma lógica corregida en `js/main.js`.
-- **Datos de contacto actualizados en todo el sitio**: teléfono (946484908), Facebook, Instagram (@magusaarcoiris), YouTube y WhatsApp (generado desde el número oficial).
+- **Datos de contacto actualizados en todo el sitio**: teléfono (922570139), Facebook, Instagram (@magusaarcoiris), YouTube y WhatsApp (generado desde el número oficial).
 - **Imágenes**: las 49 JPG/JPEG + 3 PNG del proyecto se convirtieron a WebP (43% menos peso, ~1.3 MB ahorrados), corrigiendo de paso una imagen rota (`plastilina-2.jpg` inexistente).
 - **Blog nuevo**: sección completa para publicar texto, imágenes y videos cortos en cualquier momento, sin tocar código (ver arriba). Reemplaza las páginas de plantilla `blog.html`/`blog-single.html` que tenían contenido de relleno.
 - **Publicidad para Facebook**: se diseñó un anuncio cuadrado (1080×1080) con la identidad visual real del sitio, publicado como Artifact de Claude (pídele el link a Claude si lo necesitas de nuevo).
@@ -75,3 +75,20 @@ images/                                                                         
 - Falta favicon y `<meta name="description">` en las páginas para SEO.
 - Contenido casi duplicado entre las descripciones de los 6 talleres en `index.html`/`services.html`.
 - Sección "Horarios Disponibles" en `contact.html` está oculta (comentada) porque tenía datos de ejemplo — reactivar cuando haya profesionales y horarios reales.
+
+## CSS: build de producción
+
+Las páginas cargan `css/style.min.css`, que se genera a partir de `css/fonts.css`, `css/font-awesome.css`, `css/animate.css`, `css/flaticon.css` y `css/style.css` quitando las reglas que ninguna página usa (de ~300 KB a ~67 KB, ~13 KB con gzip).
+
+```bash
+npm install          # solo la primera vez
+npm run build:css    # después de editar cualquiera de esos archivos o de usar clases nuevas del template
+```
+
+`css/enhancements.css` se carga aparte y **no necesita build**: los cambios de estilo del día a día van ahí.
+
+Si una clase de Bootstrap o del template "desaparece" en una página nueva, vuelve a ejecutar `npm run build:css` (PurgeCSS analiza los `.html`, `.php` y `.js`). Las clases que se añaden por JavaScript se declaran en `purgecss.config.cjs`.
+
+## Servidor
+
+`.htaccess` activa compresión gzip, caché del navegador y bloquea el acceso web a archivos internos (`package.json`, `scripts/`, `node_modules/`, `mail-config.php`...). Requiere `mod_deflate`, `mod_expires` y `mod_headers` activos en Apache (en Laragon, `mod_deflate` y `mod_expires` vienen comentados en `httpd.conf`).

@@ -1,7 +1,8 @@
 (function($) {
 	'use strict';
 
-	$(window).stellar({
+	// Los plugins opcionales solo se cargan en las páginas que los usan
+	if ($.fn.stellar) $(window).stellar({
 		responsive: true,
 		parallaxBackgrounds: true,
 		parallaxElements: true,
@@ -29,6 +30,7 @@
 	loader();
 
 	var carousel = function() {
+		if (!$.fn.owlCarousel) return;
 		$('.carousel-testimony').owlCarousel({
 			center: true,
 			loop: true,
@@ -76,9 +78,6 @@
 		}
 	);
 
-	$('#dropdown04').on('show.bs.dropdown', function() {
-		console.log('show');
-	});
 
 	// scroll
 	var scrollWindow = function() {
@@ -123,12 +122,11 @@
 	var counter = function() {
 		$('#section-counter, .hero-wrap, .ftco-counter').waypoint(
 			function(direction) {
-				if (direction === 'down' && !$(this.element).hasClass('ftco-animated')) {
+				if (direction === 'down' && !$(this.element).hasClass('ftco-animated') && $.animateNumber) {
 					var comma_separator_number_step = $.animateNumber.numberStepFactories.separator(',');
 					$('.number').each(function() {
 						var $this = $(this),
 							num = $this.data('number');
-						console.log(num);
 						$this.animateNumber(
 							{
 								number: num,
@@ -182,7 +180,7 @@
 	contentWayPoint();
 
 	// magnific popup
-	$('.image-popup').magnificPopup({
+	if ($.fn.magnificPopup) $('.image-popup').magnificPopup({
 		type: 'image',
 		closeOnContentClick: true,
 		closeBtnInside: false,
@@ -202,7 +200,7 @@
 		}
 	});
 
-	$('.popup-youtube, .popup-vimeo, .popup-gmaps').magnificPopup({
+	if ($.fn.magnificPopup) $('.popup-youtube, .popup-vimeo, .popup-gmaps').magnificPopup({
 		disableOn: 700,
 		type: 'iframe',
 		mainClass: 'mfp-fade',
@@ -219,21 +217,91 @@
 $('.submenu .nav-link').on('click', function() {
 	$('.submenu li a').removeClass('active');
 });
-$('#SERVICIOS').on('change', function() {
-	idservicio = $('#SERVICIOS').val();
-	if (idservicio === '1') {
-		$('#subservicios').html(
-			'<option value="0">Servicios</option><option value="CONSULTA PSICOLÓGICA INFANTIL">CONSULTA PSICOLÓGICA INFANTIL</option> <option value="EVALUACIÓN PSICOLÓGICA INFANTIL">EVALUACIÓN PSICOLÓGICA INFANTIL</option> <option value="TERAPIA EMOCIONAL">TERAPIA EMOCIONAL</option> <option value="TERAPIA DE MODIFICACIÓN DE CONDUCTA">TERAPIA DE MODIFICACIÓN DE CONDUCTA</option> <option value="TERAPIA DE ATENCIÓN Y CONCENTRACIÓN">TERAPIA DE ATENCIÓN Y CONCENTRACIÓN</option> <option value="TERAPIA DE APRENDIZAJE">TERAPIA DE APRENDIZAJE</option> <option value="EVALUACIÓN DE ORIENTACIÓN VOCACIONAL">EVALUACIÓN DE ORIENTACIÓN VOCACIONAL</option>'
-		);
-	} else if (idservicio === '2') {
-		$('#subservicios').html(
-			'<option value="0">Servicios</option><option value="CONSULTA PSICOLÓGICA ADULTO">CONSULTA PSICOLÓGICA ADULTO</option> <option value="CONSULTA PSICOLÓGICA DE PAREJA">CONSULTA PSICOLÓGICA DE PAREJA</option> <option value="CONSULTA PSICOLÓGICA FAMILIAR">CONSULTA PSICOLÓGICA FAMILIAR</option> <option value="EVALUACIÓN PSICOLÓGICA ADULTO">EVALUACIÓN PSICOLÓGICA ADULTO</option> <option value="TERAPIA PSICOLÓGICA PARA ADULTO">TERAPIA PSICOLÓGICA PARA ADULTO</option> <option value="TERAPIA DE PAREJA">TERAPIA DE PAREJA</option> <option value="TERAPIA FAMILIAR">TERAPIA FAMILIAR</option>'
-		);
-	} else if (idservicio === '3') {
-		$('#subservicios').html(
-			'<option value="0">Servicios</option><option value="TALLER DE PLASTILINA">TALLER DE PLASTILINA</option> <option value="TALLER DE PLASTILINA EN ALTO RELIEVE">TALLER DE PLASTILINA EN ALTO RELIEVE</option> <option value="TALLER DE ATRAPA SUEÑOS">TALLER DE ATRAPA SUEÑOS</option> <option value="TALLER DE HABILIDADES SOCIALES">TALLER DE HABILIDADES SOCIALES</option> <option value="TALLER DE ARTETERAPIA">TALLER DE ARTETERAPIA</option> <option value="TALLER DE ESCEULA DE PADRES">TALLER DE ESCEULA DE PADRES</option>'
-		);
+
+// En móvil el contenido de la pestaña queda debajo de la lista: lo llevamos a la vista
+$('.tabulation [data-toggle="tab"]').on('shown.bs.tab', function() {
+	if (window.matchMedia('(max-width: 767.98px)').matches) {
+		var destino = document.querySelector(this.getAttribute('href'));
+		if (destino) destino.scrollIntoView({ behavior: 'smooth', block: 'start' });
 	}
+});
+
+// Año actual en el copyright
+$('.js-year').text(new Date().getFullYear());
+
+// Mapa de Google: se inserta el iframe solo cuando el visitante pulsa "Ver mapa"
+$('.js-cargar-mapa').on('click', function() {
+	var $contenedor = $(this).closest('.map-facade');
+	$('<iframe>', {
+		src: $(this).data('src'),
+		title: 'Ubicación del Centro Psicológico Magusa Arcoiris en Google Maps',
+		allowfullscreen: '',
+		referrerpolicy: 'no-referrer-when-downgrade'
+	}).appendTo($contenedor.empty()).trigger('focus');
+});
+
+// Imágenes de fondo diferidas: se descargan al acercarse a la pantalla (data-bg="ruta")
+(function() {
+	var fondos = document.querySelectorAll('[data-bg]');
+	var cargar = function(el) {
+		el.style.backgroundImage = 'url("' + el.getAttribute('data-bg') + '")';
+		el.removeAttribute('data-bg');
+	};
+	if (!('IntersectionObserver' in window)) {
+		Array.prototype.forEach.call(fondos, cargar);
+		return;
+	}
+	var observador = new IntersectionObserver(function(entradas) {
+		entradas.forEach(function(entrada) {
+			if (entrada.isIntersecting) {
+				cargar(entrada.target);
+				observador.unobserve(entrada.target);
+			}
+		});
+	}, { rootMargin: '300px 0px' });
+	Array.prototype.forEach.call(fondos, function(el) {
+		observador.observe(el);
+	});
+})();
+
+var subserviciosPorServicio = {
+	'Servicio psicológico para niños y adolescentes': [
+		'Consulta psicológica infantil',
+		'Evaluación psicológica infantil',
+		'Terapia emocional',
+		'Terapia de modificación de conducta',
+		'Terapia de atención y concentración',
+		'Terapia de aprendizaje',
+		'Evaluación de orientación vocacional'
+	],
+	'Servicio psicológico para adultos': [
+		'Consulta psicológica adulto',
+		'Consulta psicológica de pareja',
+		'Consulta psicológica familiar',
+		'Evaluación psicológica adulto',
+		'Terapia psicológica para adulto',
+		'Terapia de pareja',
+		'Terapia familiar'
+	],
+	'Talleres': [
+		'Taller de plastilina',
+		'Taller de plastilina en alto relieve',
+		'Taller de atrapasueños',
+		'Taller de habilidades sociales',
+		'Taller de arteterapia',
+		'Escuela de padres'
+	]
+};
+
+var reiniciarSubservicios = function(opciones) {
+	var $sub = $('#subservicios').empty().append('<option value="">Tipo de consulta (opcional)</option>');
+	$.each(opciones || [], function(i, nombre) {
+		$sub.append($('<option>').val(nombre).text(nombre));
+	});
+};
+
+$('#SERVICIOS').on('change', function() {
+	reiniciarSubservicios(subserviciosPorServicio[this.value]);
 });
 
 $('#contactForm').on('submit', function(e) {
@@ -254,9 +322,14 @@ $('#contactForm').on('submit', function(e) {
 		if (respuesta === 'Correo enviado') {
 			$feedback.removeClass('text-danger').addClass('text-success').text('¡Mensaje enviado! Nos pondremos en contacto pronto.');
 			$form[0].reset();
-			$('#subservicios').html('<option value="0">Servicios</option>');
+			reiniciarSubservicios();
 		} else {
-			$feedback.removeClass('text-success').addClass('text-danger').text(respuesta);
+			// Solo mostramos los mensajes propios de contacto.php; cualquier otra salida
+			// (avisos de PHP, HTML de error del servidor) se reemplaza por un texto genérico
+			var esMensajePropio = typeof respuesta === 'string' && respuesta.length < 200 && !/[<>]|warning|error:|fatal/i.test(respuesta);
+			$feedback.removeClass('text-success').addClass('text-danger').text(
+				esMensajePropio ? respuesta : 'No se pudo enviar el mensaje. Intenta nuevamente o contáctanos por WhatsApp.'
+			);
 		}
 	}).fail(function() {
 		$feedback.removeClass('text-success').addClass('text-danger').text('No se pudo enviar el mensaje. Intenta nuevamente o contáctanos por WhatsApp.');

@@ -15,7 +15,9 @@ html {
   --font-body: 'Lato', Arial, sans-serif;
   --color-body-text: #545454;
   --color-heading: rgba(0, 0, 0, 0.82);
-  --color-primary: #5ac0a8;
+  --color-primary: #5ac0a8;        /* marca: fondos y detalles decorativos */
+  --color-primary-dark: #1f7a66;   /* texto y botones: contraste 5.2:1 sobre blanco (WCAG AA) */
+  --color-on-primary-light: #0d3b32; /* texto sobre los fondos claros de marca */
   --transition-base: 0.3s ease;
 }
 
@@ -105,18 +107,19 @@ h3 { font-weight: 600; }
   transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Botón principal: teal #5ac0a8 */
+/* Botón principal: teal oscuro para que el texto blanco cumpla WCAG AA */
 .btn.btn-primary {
-  background: var(--color-primary) !important;
-  border-color: var(--color-primary) !important;
+  background: var(--color-primary-dark) !important;
+  border-color: var(--color-primary-dark) !important;
   color: #fff !important;
 }
 
+/* Hover en blanco: legible tanto sobre fondo claro como sobre las fotos oscuras */
 .btn.btn-primary:hover,
 .btn.btn-primary:focus {
-  background: transparent !important;
-  color: var(--color-primary) !important;
-  border-color: var(--color-primary) !important;
+  background: #fff !important;
+  color: var(--color-primary-dark) !important;
+  border-color: var(--color-primary-dark) !important;
   transform: translateY(-2px);
   box-shadow: 0 8px 20px -4px rgba(90, 192, 168, 0.50);
 }
@@ -157,7 +160,7 @@ h3 { font-weight: 600; }
   letter-spacing: 3.5px;
   font-weight: 700;
   text-transform: uppercase;
-  color: var(--color-primary);
+  color: var(--color-primary-dark);
   display: inline-block;
   margin-bottom: 4px;
   position: relative;
@@ -451,7 +454,7 @@ h3 { font-weight: 600; }
   font-family: var(--font-body);
   font-size: 13px;
   letter-spacing: 1px;
-  color: var(--color-primary);
+  color: var(--color-primary-dark);
   font-weight: 700;
   text-transform: uppercase;
   margin-bottom: 12px;
@@ -482,7 +485,7 @@ h3 { font-weight: 600; }
 
 /* Hover: teal principal */
 .services-wrap:hover .text {
-  background: var(--color-primary) !important;
+  background: var(--color-primary-dark) !important;
   color: rgba(255, 255, 255, 0.88) !important;
 }
 
@@ -504,7 +507,7 @@ h3 { font-weight: 600; }
   font-family: var(--font-heading) !important;
   font-size: clamp(42px, 5vw, 60px) !important;
   font-weight: 700 !important;
-  color: var(--color-primary) !important;
+  color: var(--color-primary-dark) !important;
   display: block;
   line-height: 1;
   margin-bottom: 6px;
@@ -515,7 +518,7 @@ h3 { font-weight: 600; }
   font-size: 13px !important;
   text-transform: uppercase;
   letter-spacing: 1.2px;
-  color: #888 !important;
+  color: #666 !important;   /* #888 daba 3.2:1 sobre el fondo beige */
 }
 
 /* ============================================
@@ -590,14 +593,14 @@ h3 { font-weight: 600; }
 }
 
 .dbox .dbox-info .fa {
-  color: var(--color-primary);
+  color: var(--color-primary-dark);
   font-size: 12px;
   margin-top: 3px;   /* alinea verticalmente con la primera línea del texto */
   flex-shrink: 0;
 }
 
 .dbox .dbox-info a {
-  color: var(--color-primary);
+  color: var(--color-primary-dark);
   word-break: break-word;
 }
 
@@ -612,7 +615,7 @@ h3 { font-weight: 600; }
   box-shadow: 0 8px 40px -8px rgba(0, 0, 0, 0.10);
 }
 
-.contact-wrap h3 {
+.contact-wrap h2 {
   font-family: var(--font-heading);
   font-size: clamp(22px, 2.5vw, 28px);
   font-weight: 700;
@@ -622,7 +625,7 @@ h3 { font-weight: 600; }
   margin-bottom: 28px !important;
 }
 
-.contact-wrap h3::after {
+.contact-wrap h2::after {
   content: '';
   position: absolute;
   bottom: 0;
@@ -716,7 +719,7 @@ h3 { font-weight: 600; }
 }
 
 .sched-ref .fa {
-  color: var(--color-primary);
+  color: var(--color-primary-dark);
 }
 
 .sched-rating {
@@ -760,7 +763,7 @@ h3 { font-weight: 600; }
 
 .sched-btn-outline:hover {
   border-color: var(--color-primary);
-  color: var(--color-primary);
+  color: var(--color-primary-dark);
   text-decoration: none;
 }
 
@@ -823,7 +826,7 @@ h3 { font-weight: 600; }
 
 .sched-table thead th.sched-day.active .sched-day-label,
 .sched-table thead th.sched-day.active .sched-day-num {
-  color: var(--color-primary);
+  color: var(--color-primary-dark);
 }
 
 /* Celdas de la tabla */
@@ -842,7 +845,7 @@ h3 { font-weight: 600; }
   font-weight: 600;
   border: 1.5px solid var(--color-primary);
   border-radius: 8px;
-  color: var(--color-primary);
+  color: var(--color-primary-dark);
   background: #fff;
   cursor: pointer;
   transition: background var(--transition-base), color var(--transition-base);
@@ -851,7 +854,7 @@ h3 { font-weight: 600; }
 }
 
 .sched-slot.available:hover {
-  background: var(--color-primary);
+  background: var(--color-primary-dark);
   color: #fff;
 }
 
@@ -886,7 +889,7 @@ h3 { font-weight: 600; }
 }
 
 .sched-more-btn:hover {
-  background: var(--color-primary);
+  background: var(--color-primary-dark);
   color: #fff;
   text-decoration: none;
 }
@@ -912,4 +915,432 @@ h3 { font-weight: 600; }
   .sched-day-num {
     font-size: 16px;
   }
+}
+
+/* ============================================
+   ACCESIBILIDAD — contraste y foco (WCAG 2.1 AA)
+   ============================================ */
+
+/* Enlaces de texto: el teal de marca sobre blanco solo da 2.2:1 */
+a {
+  color: var(--color-primary-dark);
+}
+
+/* style.css elimina el outline en :focus; lo devolvemos solo para teclado */
+a:focus-visible,
+button:focus-visible,
+.btn:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+summary:focus-visible {
+  outline: 3px solid var(--color-primary-dark) !important;
+  outline-offset: 2px;
+}
+
+.ftco-appointment a:focus-visible,
+.ftco-appointment .btn:focus-visible,
+.hero-wrap a:focus-visible,
+.ftco-footer a:focus-visible {
+  outline-color: #fff !important;
+}
+
+/* Menú: ítem activo y botón hamburguesa */
+.ftco-navbar-light .navbar-nav > .nav-item.active > a,
+.ftco-navbar-light.scrolled .nav-item.active > a,
+.ftco-navbar-light.scrolled .nav-link.active {
+  color: var(--color-primary-dark) !important;
+}
+
+/* style.css lo fija en rgba(0,0,0,.5) con !important: 3.9:1 */
+.ftco-navbar-light .navbar-toggler {
+  color: #4a4a4a !important;
+}
+
+.ftco-navbar-light .navbar-toggler:hover,
+.ftco-navbar-light .navbar-toggler:focus {
+  color: var(--color-primary-dark);
+}
+
+/* Cajas intro: se conservan los fondos de marca y el texto pasa a oscuro
+   (blanco sobre #9bd09a / #5ac0a8 / #52aabe no llegaba a 3:1) */
+.intro .text,
+.intro .text h2,
+.intro .text p,
+.intro .icon span {
+  color: var(--color-on-primary-light);
+}
+
+/* ============================================
+   PESTAÑAS DE SERVICIOS
+   ============================================ */
+.tabulation .nav-pills .nav-link {
+  text-transform: uppercase;
+}
+
+.tabulation .nav-pills .nav-item .nav-link.active {
+  background: var(--color-primary-dark);
+  border-color: var(--color-primary-dark);
+}
+
+.tabulation .nav-pills .nav-item .nav-link span,
+.submenu .nav-link.active {
+  color: var(--color-primary-dark) !important;
+}
+
+/* Submenú accesible con teclado, no solo con el ratón */
+.li-principal:focus-within .submenu {
+  display: block;
+}
+
+/* En móvil el submenú se despliega debajo en lugar de salirse de la pantalla */
+@media (max-width: 767.98px) {
+  .submenu {
+    position: static;
+  }
+  .submenu li {
+    min-width: 0;
+  }
+  .tabulation .tab-content {
+    margin-top: 24px;
+  }
+  .tabulation .tab-content .img {
+    height: 220px;
+  }
+}
+
+.tabulation .tab-content h3 {
+  font-family: var(--font-heading);
+  font-size: 22px;
+  color: var(--color-heading);
+  margin-bottom: 4px;
+}
+
+.tabulation .tab-content .price {
+  font-family: var(--font-heading);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--color-primary-dark);
+  margin-bottom: 12px;
+}
+
+.tabulation .tab-content ul {
+  padding-left: 20px;
+}
+
+.cont-link a {
+  color: var(--color-primary-dark);
+  font-weight: 700;
+  display: inline-block;
+  min-height: 44px;
+  line-height: 30px;
+}
+
+.cont-link a:hover,
+.cont-link a:focus {
+  color: #fff;
+}
+
+.payment-note {
+  margin-top: 32px;
+  padding: 16px 20px;
+  border-left: 3px solid var(--color-primary);
+  background: #f4faf8;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.payment-note p {
+  margin-bottom: 0;
+}
+
+/* ============================================
+   FORMULARIO — consentimiento y mensajes
+   ============================================ */
+.form-consent {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.form-consent input {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  margin-top: 1px;
+  accent-color: var(--color-primary-dark);
+}
+
+.ftco-appointment .form-consent,
+.ftco-appointment .form-consent a {
+  color: #fff;
+}
+
+.ftco-appointment .form-consent a {
+  text-decoration: underline;
+}
+
+/* Mensaje de envío legible sobre la foto de fondo */
+#contactForm .submitting:not(:empty) {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 8px 14px;
+  border-radius: 4px;
+  background: #fff;
+  font-weight: 700;
+}
+
+/* ============================================
+   BOTÓN FLOTANTE DE WHATSAPP
+   ============================================ */
+.wa-float {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 1000;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #1a7f4b;   /* verde WhatsApp oscurecido: contraste 5:1 con el icono blanco */
+  color: #fff;
+  font-size: 30px;
+  box-shadow: 0 6px 18px -4px rgba(0, 0, 0, 0.35);
+  transition: transform var(--transition-base), background var(--transition-base);
+}
+
+.wa-float:hover,
+.wa-float:focus {
+  color: #fff;
+  background: #146c3f;
+  transform: scale(1.06);
+}
+
+@media (max-width: 575.98px) {
+  .wa-float {
+    right: 16px;
+    bottom: 16px;
+    width: 54px;
+    height: 54px;
+    font-size: 28px;
+  }
+}
+
+/* ============================================
+   MOVIMIENTO REDUCIDO
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .ftco-animate {
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+}
+
+/* Enlace "Saltar al contenido": solo visible al navegar con teclado */
+.skip-link:focus {
+  position: fixed;
+  top: 8px;
+  left: 8px;
+  z-index: 2000;
+  padding: 10px 18px;
+  background: #fff;
+  color: var(--color-primary-dark);
+  font-weight: 700;
+  border-radius: 4px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Pie de página: texto de copyright y enlace de crédito legibles sobre negro */
+.copyright {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.copyright a {
+  color: #fff;
+  text-decoration: underline;
+}
+
+/* ============================================
+   PÁGINAS LEGALES
+   ============================================ */
+.legal-text h2 {
+  font-size: 22px;
+  margin-top: 36px;
+  margin-bottom: 12px;
+}
+
+.legal-text p {
+  text-align: left;
+}
+
+/* Números 01-02-03 de "¿Cómo trabajamos?": blanco sobre teal claro no llegaba a 4.5:1 */
+.services-2 .icon-wrap .number {
+  background: var(--color-primary-dark);
+}
+
+/* ============================================
+   BANNER CON bg_5 — imagen según el ancho de pantalla
+   (en móvil se descarga una versión de 900 px, ~4 veces más ligera)
+   ============================================ */
+.hero-bg5 {
+  background-image: url('../images/bg_5-900.webp');
+}
+
+@media (min-width: 768px) {
+  .hero-bg5 {
+    background-image: url('../images/bg_5.webp');
+  }
+}
+
+/* ============================================
+   SECCIÓN DEL FORMULARIO (fondo con foto)
+   El overlay teal al 50 % dejaba el texto blanco sobre zonas claras de la foto;
+   usamos el mismo verde oscuro del hero y un color de respaldo mientras carga la imagen
+   ============================================ */
+.ftco-appointment {
+  background-color: #0d3b32;
+  background-size: cover;
+}
+
+.ftco-appointment .overlay {
+  opacity: 1;
+  background: linear-gradient(
+    108deg,
+    rgba(5, 38, 33, 0.86) 0%,
+    rgba(5, 38, 33, 0.72) 60%,
+    rgba(5, 38, 33, 0.55) 100%
+  );
+}
+
+/* Etiquetas del formulario de contacto: el teal claro daba 2.2:1 */
+.contactForm .label {
+  color: var(--color-primary-dark) !important;
+}
+
+/* Enlaces dentro de párrafos: subrayados para distinguirlos sin depender del color */
+.form-consent a,
+.legal-text a {
+  text-decoration: underline;
+}
+
+/* ============================================
+   MAPA DIFERIDO (contact.html)
+   ============================================ */
+.map-facade {
+  width: 100%;
+  min-height: 380px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0 10px 10px 0;
+  background-color: #eaf6f2;
+  background-image:
+    linear-gradient(rgba(31, 122, 102, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(31, 122, 102, 0.08) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+.map-facade-inner {
+  text-align: center;
+  padding: 24px;
+}
+
+.map-facade-icon {
+  font-size: 48px;
+  color: var(--color-primary-dark);
+  margin-bottom: 12px;
+}
+
+.map-facade-address {
+  font-weight: 700;
+  color: var(--color-heading);
+  line-height: 1.5;
+  margin-bottom: 18px;
+}
+
+.map-facade-link {
+  display: block;
+  margin-top: 14px;
+  text-decoration: underline;
+}
+
+.map-facade iframe {
+  width: 100%;
+  height: 100%;
+  min-height: 380px;
+  border: 0;
+  border-radius: 0 10px 10px 0;
+  display: block;
+}
+
+@media (max-width: 767.98px) {
+  .map-facade,
+  .map-facade iframe {
+    border-radius: 0 0 10px 10px;
+  }
+}
+
+/* ============================================
+   AJUSTES MÓVIL
+   ============================================ */
+
+/* Casilla de consentimiento siempre a la izquierda del texto
+   (style.css fuerza .appointment .form-group a display:block) */
+.appointment .form-group.form-consent,
+.form-consent {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.form-consent input[type="checkbox"] {
+  width: 20px !important;
+  height: 20px !important;
+  flex: 0 0 20px;
+}
+
+.form-consent label {
+  flex: 1 1 auto;
+}
+
+@media (max-width: 767.98px) {
+  /* La columna de la foto solo tiene fondo: sin altura mínima desaparecía al apilarse */
+  .img-3 {
+    min-height: 420px;
+    background-size: cover;
+    background-position: center top;
+  }
+
+  /* El texto justificado deja huecos grandes en columnas estrechas */
+  .text p,
+  .slider-text p,
+  .tab-pane ul,
+  .tab-pane ul li {
+    text-align: left;
+  }
+}
+
+/* Tarjeta de horario en contacto: varias líneas centradas */
+.dbox .dbox-horario {
+  display: block;
+  text-align: center;
+}
+
+/* El correo largo se corta solo en el <wbr> (antes de la @), no a mitad de palabra */
+.dbox .dbox-info a {
+  word-break: normal;
+  overflow-wrap: normal;
 }
