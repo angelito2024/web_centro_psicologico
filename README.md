@@ -63,7 +63,7 @@ images/                                                                         
 
 - **Seguridad**: la contraseña SMTP de `contacto.php` se movió a `mail-config.php` (fuera de git); el formulario de contacto ahora valida y sanea los datos antes de enviarlos.
 - **Formulario de contacto**: arreglado el bug real (el envío no prevenía el comportamiento nativo del botón, lo que a veces cancelaba el envío); ambos formularios (home y página de Contacto) ahora comparten la misma lógica corregida en `js/main.js`.
-- **Datos de contacto actualizados en todo el sitio**: teléfono (922570139), Facebook, Instagram (@magusaarcoiris), YouTube y WhatsApp (generado desde el número oficial).
+- **Datos de contacto actualizados en todo el sitio**: teléfono (946484908), Facebook, Instagram (@magusaarcoiris), YouTube y WhatsApp (generado desde el número oficial).
 - **Imágenes**: las 49 JPG/JPEG + 3 PNG del proyecto se convirtieron a WebP (43% menos peso, ~1.3 MB ahorrados), corrigiendo de paso una imagen rota (`plastilina-2.jpg` inexistente).
 - **Blog nuevo**: sección completa para publicar texto, imágenes y videos cortos en cualquier momento, sin tocar código (ver arriba). Reemplaza las páginas de plantilla `blog.html`/`blog-single.html` que tenían contenido de relleno.
 - **Publicidad para Facebook**: se diseñó un anuncio cuadrado (1080×1080) con la identidad visual real del sitio, publicado como Artifact de Claude (pídele el link a Claude si lo necesitas de nuevo).

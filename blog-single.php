@@ -47,7 +47,7 @@ $pageTitle = $post ? $post['title'] . ' | CP MAGUSA Blog' : 'Publicación no enc
         <div class="row">
           <div class="col-md-6 d-flex align-items-center">
             <p class="mb-0 phone pl-md-2">
-              <a href="tel:+51922570139" class="mr-2"><span class="fa fa-phone mr-1" aria-hidden="true"></span>922 570 139</a>
+              <a href="tel:+51946484908" class="mr-2"><span class="fa fa-phone mr-1" aria-hidden="true"></span>946 484 908</a>
               <a href="index.html#SectionInformacion" class="d-none d-md-inline"><span class="fa fa-clock-o mr-1" aria-hidden="true"></span>L-V: 8:00 a.m. – 10:00 p.m. | S: 9:00 a.m. – 6:00 p.m. | D: previa coordinación</a>
             </p>
           </div>
@@ -55,7 +55,7 @@ $pageTitle = $post ? $post['title'] . ' | CP MAGUSA Blog' : 'Publicación no enc
             <div class="social-media">
               <p class="mb-0 d-flex">
                 <a href="https://www.facebook.com/profile.php?id=61574303079409" class="d-flex align-items-center justify-content-center" target="_blank" rel="noopener" aria-label="Facebook"><span class="fa fa-facebook" aria-hidden="true"></span></a>
-                <a href="https://wa.me/51922570139" class="d-flex align-items-center justify-content-center" target="_blank" rel="noopener" aria-label="WhatsApp"><span class="fa fa-whatsapp" aria-hidden="true"></span></a>
+                <a href="https://wa.me/51946484908" class="d-flex align-items-center justify-content-center" target="_blank" rel="noopener" aria-label="WhatsApp"><span class="fa fa-whatsapp" aria-hidden="true"></span></a>
                 <a href="https://www.instagram.com/magusaarcoiris/" class="d-flex align-items-center justify-content-center" target="_blank" rel="noopener" aria-label="Instagram"><span class="fa fa-instagram" aria-hidden="true"></span></a>
                 <a href="https://www.youtube.com/@centropsicologicomaguesperanza" class="d-flex align-items-center justify-content-center" target="_blank" rel="noopener" aria-label="YouTube"><span class="fa fa-youtube" aria-hidden="true"></span></a>
               </p>
@@ -154,7 +154,7 @@ $pageTitle = $post ? $post['title'] . ' | CP MAGUSA Blog' : 'Publicación no enc
               <p>Comprometidos 100 % con tu bienestar.</p>
               <ul class="ftco-footer-social list-unstyled mt-2">
                 <li class="ftco-animate"><a href="https://www.facebook.com/profile.php?id=61574303079409" class="social-fb" target="_blank" rel="noopener" aria-label="Facebook"><span class="fa fa-facebook" aria-hidden="true"></span></a></li>
-                <li class="ftco-animate"><a href="https://wa.me/51922570139" class="social-wsp" target="_blank" rel="noopener" aria-label="WhatsApp"><span class="fa fa-whatsapp" aria-hidden="true"></span></a></li>
+                <li class="ftco-animate"><a href="https://wa.me/51946484908" class="social-wsp" target="_blank" rel="noopener" aria-label="WhatsApp"><span class="fa fa-whatsapp" aria-hidden="true"></span></a></li>
                 <li class="ftco-animate"><a href="https://www.instagram.com/magusaarcoiris/" class="social-inst" target="_blank" rel="noopener" aria-label="Instagram"><span class="fa fa-instagram" aria-hidden="true"></span></a></li>
                 <li class="ftco-animate"><a href="https://www.youtube.com/@centropsicologicomaguesperanza" class="social-yt" target="_blank" rel="noopener" aria-label="YouTube"><span class="fa fa-youtube" aria-hidden="true"></span></a></li>
               </ul>
@@ -185,8 +185,8 @@ $pageTitle = $post ? $post['title'] . ' | CP MAGUSA Blog' : 'Publicación no enc
               <h2 class="ftco-heading-2">¿Tienes alguna pregunta?</h2>
               <div class="block-23 mb-3">
                 <ul>
-                  <li><a href="https://www.google.com/maps/search/?api=1&amp;query=-11.980595,-77.017625" target="_blank" rel="noopener"><span class="icon fa fa-map-marker" aria-hidden="true"></span><span class="text">Nevado Coropuna 364, San Juan de Lurigancho, Lima</span></a></li>
-                  <li><a href="tel:+51922570139"><span class="icon fa fa-phone" aria-hidden="true"></span><span class="text">922 570 139</span></a></li>
+                  <li><a href="https://www.google.com/maps/search/?api=1&amp;query=-11.982948,-77.016822" target="_blank" rel="noopener"><span class="icon fa fa-map-marker" aria-hidden="true"></span><span class="text">Mz. H Lt. 38, Asoc. Santa Elizabeth II Etapa, San Juan de Lurigancho, Lima</span></a></li>
+                  <li><a href="tel:+51946484908"><span class="icon fa fa-phone" aria-hidden="true"></span><span class="text">946 484 908</span></a></li>
                   <li><a href="mailto:informes@centropsicologicomagusa.com"><span class="icon fa fa-paper-plane pr-4" aria-hidden="true"></span><span class="text">informes@centropsicologicomagusa.com</span></a></li>
                 </ul>
               </div>
@@ -205,7 +205,7 @@ $pageTitle = $post ? $post['title'] . ' | CP MAGUSA Blog' : 'Publicación no enc
       </div>
     </footer>
 
-    <a href="https://wa.me/51922570139?text=Hola%2C%20quisiera%20informaci%C3%B3n%20sobre%20sus%20servicios." class="wa-float" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp"><span class="fa fa-whatsapp" aria-hidden="true"></span></a>
+    <a href="https://wa.me/51946484908?text=Hola%2C%20quisiera%20informaci%C3%B3n%20sobre%20sus%20servicios." class="wa-float" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp"><span class="fa fa-whatsapp" aria-hidden="true"></span></a>
 
   <script src="js/jquery-3.7.1.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
